@@ -14,4 +14,21 @@ function my_theme_enqueue_styles() {
         $theme->get( 'Version' ) // This only works if you have Version defined in the style header.
     );
 }
+
+function register_my_menus()
+{
+  register_nav_menus(
+    array(
+      'header-menu' => __('Menu Header'),
+      'footer-menu' => __('Menu Footer'),
+    )
+  );
+}
+add_action('init', 'register_my_menus');
+
+function custom_script()
+{
+  wp_enqueue_script('modal', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'custom_script');
 ?>
