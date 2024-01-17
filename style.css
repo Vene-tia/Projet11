@@ -5,3 +5,22 @@ Author:       Venetia
 Template:     twentytwentyone
 Version:      1.0.0
 */
+
+.w3-container {
+    /* background-image: url("./assets/contact_header.png");
+    background-repeat: no-repeat;
+    background-size: 100%; 
+    [contact-form-7 id="6205389" title="Contact form 1"] */
+    display: none;
+    position: fixed;
+    top: 5em;
+    left: 20em;
+    width: 597px;
+    height: 769px;
+    border: 5px solid black;
+    background-color: white;
+}
+
+.contact_header {
+    scale: 1.5;
+}
