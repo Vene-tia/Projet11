@@ -6,19 +6,83 @@ Template:     twentytwentyone
 Version:      1.0.0
 */
 
+/***** MENU FULL *****/
+
+@media screen and (min-width : 785px) {
+    a {
+        text-decoration: none !important;
+    }
+
+    a:hover {
+        font-weight: 700;
+    }
+
+    .logo-header {
+        scale: 0.3;
+    }
+
+    .menu-primary-menu-container {
+        position: relative;
+        top: 2em;
+        left: 40em;
+    }
+
+    #menu-primary-menu {
+        display: flex;
+    }
+
+    #menu-item-19 {
+        padding-left: 20px;
+    }
+
+    #menu-item-18::marker, #menu-item-19::marker {
+        color: transparent;
+        text-decoration: none !important;
+    }
+
+    button.header-menu {
+        position: relative;
+        left: 16em;
+        background : none !important;
+        color: black !important;
+        padding-top: 5px;
+    }
+
+    button.header-menu:hover {
+        border: none !important;
+        padding-left: 33px !important;
+        padding-top: 8px !important;
+        padding-bottom: 18px !important;
+        font-weight: 700;
+    }
+
+    button.header-menu:focus {
+        display: none !important; /* à enlever ?? */
+    }
+}
+
+/***** MENU PHONE *****/
+
+@media screen and (max-width : 785px) {
+
+}
+
+/***** MODALE *****/
+
 .w3-container {
     /* background-image: url("./assets/contact_header.png");
     background-repeat: no-repeat;
     background-size: 100%; 
     [contact-form-7 id="6205389" title="Contact form 1"] */
-    display: none;
+    display: none; /* à enlever */
     position: fixed;
     top: 5em;
-    left: 20em;
+    left: 35em;
     width: 597px;
     height: 769px;
     border: 5px solid black;
     background-color: white;
+    z-index: 999;
 }
 
 .contact_header {

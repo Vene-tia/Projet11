@@ -9,6 +9,7 @@
 <body <?php body_class(); ?>>
 <header class="header">
     <?php wp_nav_menu(array('theme_location' => 'header-menu', 'menu_class' => 'header-menu', )); ?>
+	<img class="logo-header" src="<?php echo get_stylesheet_directory_uri() . '/assets/logo.png'; ?>" alt="LOGO">
     <button class="header-menu modale">Contact</button>
 </header>
 <?php wp_body_open(); ?>
