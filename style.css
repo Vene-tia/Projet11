@@ -6,9 +6,7 @@ Template:     twentytwentyone
 Version:      1.0.0
 */
 
-/***** MENU FULL *****/
-
-
+/***** MENU MOBILE DEFAULT *****/
 
 a {
     text-decoration: none !important;
@@ -23,25 +21,19 @@ li, ul {
     padding: 0;
 }
 
+.logo-header {
+    max-width: 138px;
+}
+
 .header{
     display: flex;
     align-items: center;
     width: 100%;
     height: 80px;
-    background-color: #d0caca;
+    background-color: white;
     padding-left: 40px;
     padding-right: 40px;
     justify-content: space-between;
-}
-
-.logo-header {
-    max-width: 138px;
-}
-
-#menu-primary-menu {
-    display: flex;
-    gap: 20px;
-    justify-content: flex-end;
 }
 
 .nav-ordi{
@@ -52,7 +44,7 @@ li, ul {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: #d0caca;
+    background: #E00000;
     z-index: 100;
     top: 0;
     text-align: center;
@@ -61,6 +53,12 @@ li, ul {
 
 .nav-mobile ul{
     padding: 0;
+}
+
+.nav-mobile li a{
+    color: white;
+    font-size: 44px;
+    font-family: "Space Mono";
 }
 
 #croix-burger{
@@ -85,6 +83,12 @@ li, ul {
     justify-content: space-evenly;
 }
 
+#menu-primary-menu {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
 /* button contact  */
 .header .header-menu {
     background-color: transparent !important;
@@ -99,33 +103,38 @@ button.header-menu:hover {
     font-weight: 700;
 }
 
-
 .burger-btn{
     background-color: transparent !important;
     padding: 10px;
     position: relative;
     z-index: 150;
-    
+    border: none !important;
 }
 
+.burger-btn:focus{
+    display: none;
+}
 
+/***** MENU FULL SCREEN *****/
 
-
-
-/***** GRANDE ECREN *****/
-
-@media screen and (min-width : 785px) {
+@media screen and (min-width : 856px) {
     .header{
         padding-left: 146px;
         padding-right: 146px;
     }
-    .menu-primary-menu-container{
-        display: block;
-    }
     .logo-header {
         max-width: 216px;
     }
-
+    .burger-btn{
+    display: none;
+    }
+    .nav-ordi{
+        display: flex;
+        padding: 0;
+    }
+    .header .header-menu {
+        display: block;
+    }
 }
 
 /***** MODALE *****/
@@ -148,4 +157,14 @@ button.header-menu:hover {
 
 .contact_header {
     scale: 1.5;
+}
+
+/***** MODIFS GENERALES *****/
+
+.entry-title {
+    display: none;
+}
+
+.entry-header {
+    display: none;
 }
