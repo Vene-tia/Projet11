@@ -85,7 +85,7 @@ li, ul {
 
 #menu-primary-menu {
     display: flex;
-    gap: 20px;
+    gap: 45px;
     justify-content: flex-end;
 }
 
@@ -94,7 +94,7 @@ li, ul {
     background-color: transparent !important;
     color: inherit !important;
     padding: 0;
-    margin-left: 20px;
+    margin-left: 45px;
     display: none;
 }
 
@@ -126,7 +126,7 @@ button.header-menu:hover {
         max-width: 216px;
     }
     .burger-btn{
-    display: none;
+        display: none;
     }
     .nav-ordi{
         display: flex;
@@ -144,7 +144,7 @@ button.header-menu:hover {
     background-repeat: no-repeat;
     background-size: 100%; 
     [contact-form-7 id="6205389" title="Contact form 1"] */
-    display: none; /* à enlever */
+    /* display: none; à enlever */
     position: fixed;
     top: 5em;
     left: 35em;
@@ -157,6 +157,31 @@ button.header-menu:hover {
 
 .contact_header {
     scale: 1.5;
+}
+
+.wpcf7-form {
+    max-width: 590px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wpcf7-form-control {
+    border-radius: 8px !important;
+    border: 1px solid #B8BBC2 !important;
+    width: 263px;
+}
+
+.wpcf7-submit {
+    background: #D8D8D8 !important;
+    color: black !important;
+    border: 0 !important;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02) !important;
+    font-family: monospace !important;
+}
+
+.wpcf7-spinner {
+    display: none;
 }
 
 /***** MODIFS GENERALES *****/

@@ -11,7 +11,7 @@
  <a href="http://nathalie-mota.local/"><img class="logo-header" src="<?php echo get_stylesheet_directory_uri() . '/assets/logo.png'; ?>" alt="LOGO"> </a>
     <nav  class="nav-ordi">
 		<?php wp_nav_menu(array('theme_location' => 'header-menu', 'menu_class' => 'header-menu', )); ?>
-    	<button class="header-menu modale">Contact</button>
+    	<button class="header-menu modale">CONTACT</button>
 	</nav>
 	<button class="burger-btn">
 		<svg id="menu-burger" width="28" height="19" viewBox="0 0 28 19" fill="none">
