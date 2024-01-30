@@ -3,6 +3,13 @@ btn.addEventListener("click", ()=>{
     document.getElementById('id01').style.display='block'
 })
 
+window.addEventListener("click", (event)=>{
+    console.log(event.target);
+    if (event.target == document.querySelector('.w3-modal')) {
+        document.getElementById('id01').style.display = "none";
+      }
+})
+
 
 const menu_btn = document.querySelector('.burger-btn')
 const navMobile = document.querySelector('.nav-mobile')

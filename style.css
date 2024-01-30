@@ -34,6 +34,7 @@ li, ul {
     padding-left: 40px;
     padding-right: 40px;
     justify-content: space-between;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
 }
 
 .nav-ordi{
@@ -117,7 +118,7 @@ button.header-menu:hover {
 
 /***** MENU FULL SCREEN *****/
 
-@media screen and (min-width : 856px) {
+@media screen and (min-width : 936px) {
     .header{
         padding-left: 146px;
         padding-right: 146px;
@@ -140,23 +141,32 @@ button.header-menu:hover {
 /***** MODALE *****/
 
 .w3-container {
-    /* background-image: url("./assets/contact_header.png");
-    background-repeat: no-repeat;
-    background-size: 100%; 
-    [contact-form-7 id="6205389" title="Contact form 1"] */
-    /* display: none; à enlever */
+    /* display: none;  à enlever */
+    display: flex;
+    justify-content: center;
     position: fixed;
-    top: 5em;
-    left: 35em;
-    width: 597px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.305);
+}
+
+.w3-modal-content {
+    width: clamp(200px, 100%, 597px);
     height: 769px;
     border: 5px solid black;
     background-color: white;
-    z-index: 999;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    top: 100px;
+    z-index: 100;
 }
 
 .contact_header {
     scale: 1.5;
+    margin-top: 25px;
 }
 
 .wpcf7-form {
@@ -184,6 +194,10 @@ button.header-menu:hover {
     display: none;
 }
 
+.image-hero {
+    pointer-events: none;
+}
+
 /***** MODIFS GENERALES *****/
 
 .entry-title {
@@ -192,4 +206,10 @@ button.header-menu:hover {
 
 .entry-header {
     display: none;
+}
+
+/***** FOOTER *****/
+
+.footer-navigation-wrapper {
+    border-top: 1px solid black;
 }
