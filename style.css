@@ -104,6 +104,10 @@ button.header-menu:hover {
     font-weight: 700;
 }
 
+button.header-menu:focus {
+    outline: none;
+}
+
 .burger-btn{
     background-color: transparent !important;
     padding: 10px;
@@ -141,7 +145,6 @@ button.header-menu:hover {
 /***** MODALE *****/
 
 .w3-container {
-    /* display: none;  à enlever */
     display: flex;
     justify-content: center;
     position: fixed;
@@ -206,6 +209,14 @@ button.header-menu:hover {
 
 .entry-header {
     display: none;
+}
+
+.entry-footer {
+    display: none !important;
+}
+
+.entry-content {
+    margin-top: 0 !important;
 }
 
 /***** FOOTER *****/
