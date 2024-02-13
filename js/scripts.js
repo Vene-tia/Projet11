@@ -4,7 +4,6 @@ btn.addEventListener("click", ()=>{
 })
 
 window.addEventListener("click", (event)=>{
-    console.log(event.target);
     if (event.target == document.querySelector('.w3-modal')) {
         document.getElementById('id01').style.display = "none";
       }

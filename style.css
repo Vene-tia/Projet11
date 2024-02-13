@@ -145,10 +145,10 @@ button.header-menu:focus {
 /***** MODALE *****/
 
 .w3-container {
-    display: flex;
+    display: none;
     justify-content: center;
     position: fixed;
-    top: 0;
+    top: -68px;
     left: 0;
     bottom: 0;
     right: 0;
@@ -217,6 +217,42 @@ button.header-menu:focus {
 
 .entry-content {
     margin-top: 0 !important;
+}
+
+/***** POST PHOTO *****/
+
+.wp-block-columns {
+    max-width : 70% !important;
+}
+
+.wp-block-column-is-layout-flow {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.wp-block-separator {
+    width: 100% !important;
+}
+
+/***** FILTRE & PHOTOS APPARENTEES *****/
+
+.filtre .attachment-post-thumbnail {
+    width: 564px !important;
+    height: 495px !important;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.photos_apparentées .attachment-post-thumbnail {
+    width: 564px !important;
+    height: 495px !important;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.filtre .attachment-post-thumbnail:hover {
+    background-image: url("/twentytwentyone_child/assets/Icon_eye.png");
 }
 
 /***** FOOTER *****/
