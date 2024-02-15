@@ -108,6 +108,25 @@ button.header-menu:focus {
     outline: none;
 }
 
+.header .btn-mobile {
+    background-color: transparent !important;
+    color: inherit !important;
+    position: absolute;
+    top: 562px;
+    z-index: 999;
+}
+
+button.btn-mobile:hover {
+    border: none;
+    font-weight: 700;
+}
+
+button.btn-mobile:focus {
+    outline: none;
+}
+
+/***** BURGER ****/
+
 .burger-btn{
     background-color: transparent !important;
     padding: 10px;
@@ -240,6 +259,7 @@ button.header-menu:focus {
 .filtre .attachment-post-thumbnail {
     width: 564px !important;
     height: 495px !important;
+    object-fit: cover;
     overflow: hidden;
     margin: 10px;
 }
@@ -247,12 +267,106 @@ button.header-menu:focus {
 .photos_apparentées .attachment-post-thumbnail {
     width: 564px !important;
     height: 495px !important;
+    object-fit: cover;
     overflow: hidden;
     margin: 10px;
 }
 
-.filtre .attachment-post-thumbnail:hover {
-    background-image: url("/twentytwentyone_child/assets/Icon_eye.png");
+/*.filtre .attachment-post-thumbnail:hover {
+    background-image: url(assets/Icon_eye.png);
+} */
+
+/**** LIGHTBOX ****/
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    /* overflow: auto; */
+}
+
+.next_lightbox {
+    background: url(assets/next.png) no-repeat;
+    width: 107px;
+    height: 18px;
+    border: none;
+    background-color: transparent !important;
+    position: fixed;
+    top: 50%;
+    right: 10%;
+    margin-top: 9px;
+    z-index: 101;
+    opacity: .8;
+    transition: .3;
+}
+
+.next_lightbox:hover{
+    opacity: 1;
+}
+
+.next_lightbox:focus{
+    display: none;
+}
+
+.before_lightbox {
+    background: url(assets/before.png)no-repeat;
+    width: 107px;
+    height: 18px;
+    border: none;
+    background-color: transparent !important;
+    position: fixed;
+    top: 50%;
+    right: auto;
+    left: 10%;
+    margin-top: 9px;
+    z-index: 101;
+    opacity: .8;
+    transition: .3;
+}
+
+.before_lightbox:hover{
+    opacity: 1;
+}
+
+.before_lightbox:focus{
+    display: none;
+}
+
+.close_lightbox {
+    background: url(assets/close.png) no-repeat;
+    width: 22px;
+    height: 22px;
+    background-color: transparent !important;
+    border: none;
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    margin-top: 9px;
+    z-index: 101;
+    opacity: .8;
+    transition: .3;
+    z-index: 102;
+}
+
+.close_lightbox:hover {
+    opacity: 1;
+}
+
+.close_lightbox:focus {
+    display: none;
+}
+
+.lightbox_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-height: 100vh;
 }
 
 /***** FOOTER *****/

@@ -23,6 +23,13 @@
 
 <?php get_template_part('templates_part/modale'); ?>
 
+<div class="lightbox">
+    <button class="close_lightbox"></button>
+    <button class="next_lightbox"></button>
+    <button class="before_lightbox"></button>
+    <div class="lightbox__container"></div>
+</div>
+
 <?php wp_footer(); ?>
 
 </body>

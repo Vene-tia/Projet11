@@ -53,7 +53,10 @@
 			the_content(); */ ?>
 			<a href="<?php the_permalink(); ?>"> 
 			<?php the_post_thumbnail(); ?> </a>
-<?php 	endwhile;
+			<?php echo get_post_meta(get_the_ID(), 'reference', true); ?>
+			<?php $categories = get_categories();
+			var_dump($categories); ?>
+		<?php endwhile;
 		endif;
 		// 4. On réinitialise à la requête principale (important)
 		wp_reset_postdata();

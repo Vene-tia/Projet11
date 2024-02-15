@@ -9,13 +9,13 @@
 <?php if (have_posts()):
   while (have_posts()):
     the_post(); ?>
-<article> contenue dynamique </article>
+<article> contenu dynamique </article>
 <?php endwhile; ?>
 <?php endif; ?>
           
 
-<?php the_field( 'reference' ); ?> <!– Afficher une valeur –>
-<?php $note = get_field( 'reference' ); ?> <!– Récupérer la valeur –>
+<?php the_field( 'reference' ); // Afficher une valeur ?> 
+<?php $note = get_field( 'reference' ); // Récupérer la valeur ?> 
 
 <?php the_field( 'categorie' ); ?>
 <?php $note = get_field( 'categorie' ); ?>
