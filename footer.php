@@ -23,12 +23,14 @@
 
 <?php get_template_part('templates_part/modale'); ?>
 
-<div class="lightbox">
+<!-- <div class="lightbox">
     <button class="close_lightbox"></button>
     <button class="next_lightbox"></button>
     <button class="before_lightbox"></button>
     <div class="lightbox__container"></div>
-</div>
+    <?php echo get_field( 'reference' );
+	echo get_field( 'categorie' ); ?>
+</div> -->
 
 <?php wp_footer(); ?>
 

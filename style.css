@@ -256,25 +256,108 @@ button.btn-mobile:focus {
 
 /***** FILTRE & PHOTOS APPARENTEES *****/
 
+.photo_resultat {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*****.filtre {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .filtre .attachment-post-thumbnail {
-    width: 564px !important;
-    height: 495px !important;
+    width: 70vmin !important;
+    height: 65vmin !important;
     object-fit: cover;
-    overflow: hidden;
     margin: 10px;
+}
+
+.photos_apparentées {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .photos_apparentées .attachment-post-thumbnail {
-    width: 564px !important;
-    height: 495px !important;
+    width: 70vmin !important;
+    height: 65vmin !important;
     object-fit: cover;
-    overflow: hidden;
     margin: 10px;
+} ****/
+
+.filtre {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-/*.filtre .attachment-post-thumbnail:hover {
-    background-image: url(assets/Icon_eye.png);
-} */
+.filtre .card {
+    border: 1px;
+    position: relative;
+}
+
+.filtre .card .title,
+.filtre .card .categorie {
+    position: absolute;
+    bottom: 10px;
+    color: white;
+    z-index: 10;
+    font-size: 14px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.filtre .card .fullscreen {
+    position: absolute;
+    top: 10px;
+    right: 17px;
+    width: 34px;
+    height: 34px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.filtre .card .lightbox-eye {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 46px;
+    height: 31.204px;
+    cursor: pointer;
+}
+
+.filtre .card .title {
+    left: 17px;
+}
+
+.filtre .card .categorie {
+    right: 17px;
+}
+
+.filtre .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #00000099;
+}
+
+.filtre .card:hover {
+}
+
+.filtre .card img {
+    width: 564px;
+    height: 495px;
+    object-fit: cover;
+}
 
 /**** LIGHTBOX ****/
 
