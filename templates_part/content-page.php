@@ -59,21 +59,20 @@
 
 	// Récupère le texte alternatif de l'image.
 	$image_alt = get_post_meta(get_the_ID(), '_wp_attachment_image_alt', true);
-
 	$post_id = get_post_meta(get_the_ID(), 'reference', true);
-
 	$postcat = get_the_category( $wp_query->post->ID );
+	$fields = get_the_category();
 
-	 //  <a href="<?php the_permalink();  "> 
+	 // LIEN  <a href="<?php the_permalink();  "> 
 	?>
 		<div class="card">
 
 			<img class="post_img" src="<?php echo $image_url ?>" alt="<?php echo $image_alt?>" data-imgId="<?php echo $post_id ?>">
 
 			<img class="fullscreen" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/Icon_fullscreen.png" alt="logo" role="button" aria-pressed="false">
-			<img class="lightbox-eye" alt="lightbox eye" role="button" aria-pressed="false" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/Icon_eye.png"   >
+			<img class="lightbox-eye" alt="lightbox eye" role="button" aria-pressed="false" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/Icon_eye.png">
 			<span class="title"> <?php  echo the_title() ?> </span>
-			<span class="categorie"><?php var_dump($postcat) ?></span>
+			<span class="categorie"><?php echo get_field( 'categorie' ) ?></span>
 			
 		</div>
 		<?php
@@ -82,7 +81,7 @@
 		// var_dump($fields["categorie"]);
 		// if(!in_array($fields["categorie"], $categorie_array)){
 		//  array_push($categorie_array, $fields["categorie"]);
-		// } 
+		// } var_dump($postcat)
 		 ?>		
 	<?php   endwhile;
 	// echo "<h2>categories list: ";

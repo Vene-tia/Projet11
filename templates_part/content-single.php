@@ -55,7 +55,7 @@
 		<?php 
 		$args = array(
 			'post_type' => 'photo',
-			'meta_value' => 'concert', // Attention récup info de la catégorie de la page
+			'meta_value' => get_field( 'categorie' ), // Attention récup info de la catégorie de la page
 			'posts_per_page' => 2,
 		);
 		$my_query = new WP_Query( $args );

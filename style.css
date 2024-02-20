@@ -262,19 +262,6 @@ button.btn-mobile:focus {
     flex-wrap: wrap;
 }
 
-/*****.filtre {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.filtre .attachment-post-thumbnail {
-    width: 70vmin !important;
-    height: 65vmin !important;
-    object-fit: cover;
-    margin: 10px;
-}
-
 .photos_apparentées {
     display: flex;
     justify-content: center;
@@ -282,6 +269,19 @@ button.btn-mobile:focus {
 }
 
 .photos_apparentées .attachment-post-thumbnail {
+    width: 70vmin !important;
+    height: 65vmin !important;
+    object-fit: cover;
+    margin: 10px;
+}
+
+/*****.filtre {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filtre .attachment-post-thumbnail {
     width: 70vmin !important;
     height: 65vmin !important;
     object-fit: cover;
@@ -300,6 +300,47 @@ button.btn-mobile:focus {
     position: relative;
 }
 
+.filtre .card img {
+    width: 564px;
+    height: 495px;
+    object-fit: cover;
+}
+
+.filtre .card .fullscreen {
+    display: none;
+}
+
+.filtre .card:hover .fullscreen {
+    display: inline;
+    position: absolute;
+    top: 10px;
+    right: 17px;
+    width: 34px;
+    height: 34px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.filtre .card .lightbox-eye {
+    display: none;
+}
+
+.filtre .card:hover .lightbox-eye {
+    display: inline;
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 46px;
+    height: 31.204px;
+    cursor: pointer;
+}
+
+.filtre .card .categorie, .filtre .card .title {
+    display: none;
+}
+
 .filtre .card .title,
 .filtre .card .categorie {
     position: absolute;
@@ -311,36 +352,17 @@ button.btn-mobile:focus {
     text-transform: uppercase;
 }
 
-.filtre .card .fullscreen {
-    position: absolute;
-    top: 10px;
-    right: 17px;
-    width: 34px;
-    height: 34px;
-    z-index: 10;
-    cursor: pointer;
-}
-
-.filtre .card .lightbox-eye {
-    position: absolute;
-    z-index: 10;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 46px;
-    height: 31.204px;
-    cursor: pointer;
-}
-
-.filtre .card .title {
+.filtre .card:hover .title {
+    display: inline;
     left: 17px;
 }
 
-.filtre .card .categorie {
+.filtre .card:hover .categorie {
+    display: inline;
     right: 17px;
 }
 
-.filtre .card::after {
+.filtre .card:hover::after {
     content: "";
     position: absolute;
     top: 0;
@@ -348,15 +370,6 @@ button.btn-mobile:focus {
     right: 0;
     bottom: 0;
     background: #00000099;
-}
-
-.filtre .card:hover {
-}
-
-.filtre .card img {
-    width: 564px;
-    height: 495px;
-    object-fit: cover;
 }
 
 /**** LIGHTBOX ****/
