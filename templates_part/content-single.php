@@ -20,11 +20,11 @@
 
 	<div class="entry-content">
 		<div class="info_photo">
-			<?php echo get_field( 'reference' ); ?>
-			<?php echo get_field( 'categorie' ); ?>
-			<?php echo get_field( 'format' ); ?>
-			<?php echo get_field( 'type' ); ?>
-			<?php echo get_field( 'annee' ); ?>
+			<p>RÉFÉRENCE : <?php echo get_field( 'reference' ); ?></p>
+			<p>CATÉGORIE : <?php echo get_field( 'categorie' ); ?></p>
+			<p>FORMAT : <?php echo get_field( 'format' ); ?></p>
+			<p>TYPE : <?php echo get_field( 'type' ); ?></p>
+			<p>ANNÉE : <?php echo get_field( 'annee' ); ?></p>
 		</div>
 		<?php
 		the_content();
@@ -59,9 +59,21 @@
 			'posts_per_page' => 2,
 		);
 		$my_query = new WP_Query( $args );
-		if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();?>
-			<a href="<?php the_permalink(); ?>"> 
-			<?php the_post_thumbnail(); ?> </a>
+		if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
+			
+			$image_url = get_the_post_thumbnail_url();
+			$image_alt = get_post_meta(get_the_ID(), '_wp_attachment_image_alt', true);
+			$post_id = get_post_meta(get_the_ID(), 'reference', true);
+			$postcat = get_the_category( $wp_query->post->ID );
+			$fields = get_the_category();
+			?>
+			<div class="card">
+				<img class="post_img" src="<?php echo $image_url ?>" alt="<?php echo $image_alt?>" data-imgId="<?php echo $post_id ?>">
+				<img class="fullscreen" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/Icon_fullscreen.png" alt="Open Lightbox" role="button" aria-pressed="false" onclick="openModal()">
+				<a href="<?php the_permalink();?>"><img class="info-eye" alt="Open Info" role="button" aria-pressed="false" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/Icon_eye.png" ></a>
+				<span class="title"> <?php  echo the_title() ?> </span>
+				<span class="categorie"><?php echo get_field( 'categorie' ) ?></span>
+			</div>
     <?php endwhile;
 		endif;
 		wp_reset_postdata();
