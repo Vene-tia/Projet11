@@ -220,6 +220,29 @@ button.btn-mobile:focus {
     pointer-events: none;
 }
 
+.w3-container2 {
+    display: none;
+    justify-content: center;
+    position: fixed;
+    top: -68px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.305);
+}
+
+.w3-modal-content2 {
+    width: clamp(200px, 100%, 597px);
+    height: 769px;
+    border: 5px solid black;
+    background-color: white;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    top: 100px;
+    z-index: 100;
+}
+
 /***** MODIFS GENERALES *****/
 
 .entry-title {
@@ -238,12 +261,19 @@ button.btn-mobile:focus {
     margin-top: 0 !important;
 }
 
-.wp-block-button__link {
+.button_contact {
     background-color: #D8D8D8 !important;
     width : 272px !important;
     color: black !important;
 }
 
+.button_contact:hover {
+    border-color: #D8D8D8;
+}
+
+.button_contact:focus {
+    display: none;
+}
 
 /***** POST PHOTO *****/
 

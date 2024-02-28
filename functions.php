@@ -29,6 +29,7 @@ add_action('init', 'register_my_menus');
 function custom_script()
 {
   wp_enqueue_script('modal', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
+  wp_enqueue_script('lightbox', get_stylesheet_directory_uri() . '/js/lightbox.js', array('jquery'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'custom_script');
 ?>

@@ -21,11 +21,13 @@
 	<div class="entry-content">
 		<div class="info_photo">
 			<p>RÉFÉRENCE : <?php echo get_field( 'reference' ); ?></p>
+			<input id="ref_contact" type="text" value="<?php echo get_field( 'reference' ); ?>" hidden>
 			<p>CATÉGORIE : <?php echo get_field( 'categorie' ); ?></p>
 			<p>FORMAT : <?php echo get_field( 'format' ); ?></p>
 			<p>TYPE : <?php echo get_field( 'type' ); ?></p>
 			<p>ANNÉE : <?php echo get_field( 'annee' ); ?></p>
 		</div>
+		<button class="button_contact">Contact</button>
 		<?php
 		the_content();
 

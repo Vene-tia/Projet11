@@ -1,7 +1,6 @@
-function openModal() {
-    document.getElementById("mylightbox").style.display = "block";
-  }
-  
-  function closeModal() {
-    document.getElementById("mylightbox").style.display = "none";
-  }
+const btnFullscreen = document.querySelectorAll('.fullscreen')
+console.log(btnFullscreen)
+
+btnFullscreen.forEach((btn)=>{
+console.log(btn)
+})
