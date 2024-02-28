@@ -27,9 +27,15 @@
     <button class="close_lightbox"></button>
     <button class="next_lightbox"></button>
     <button class="before_lightbox"></button>
-    <div class="lightbox__container"></div>
+    <div class="lightbox__container">
+        <img id="imgchargement" src="https://img.freepik.com/vecteurs-premium/icone-chargement_167801-436.jpg?w=360" alt="">
+    </div>
     <?php echo get_field( 'reference' );
 	echo get_field( 'categorie' ); ?>
+    <div class="lightbox__info">
+		<p class="lightbox__ref">light-ref</p>
+		<p class="lightbox__cat">light-cat</p>
+	</div>
 </div>
 
 <?php wp_footer(); ?>
