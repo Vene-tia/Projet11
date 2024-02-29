@@ -7,9 +7,7 @@ const imgavant = document.querySelector('.before_lightbox')
 const imgapres = document.querySelector('.next_lightbox')
 const refimg = document.querySelector('.lightbox__ref')
 const catimg = document.querySelector('.lightbox__cat')
-//console.log(btnFullscreen)
-console.log(imagepost);
-
+const cat = document.querySelectorAll('.categorie')
 let Showlightbox = false
 let ArrayIndex = null
 
@@ -18,7 +16,8 @@ btnFullscreen.forEach((btn,i)=>{
         Checklightbox()
         ArrayIndex = i
         imgchargement.src = imagepost[ArrayIndex].currentSrc
-        //console.log(i);
+        catimg.innerText = (cat[ArrayIndex].innerText)
+        refimg.innerText = (imagepost[ArrayIndex].getAttribute("data-imgid"))
     })
 })
 
@@ -33,6 +32,8 @@ imgapres.addEventListener("click", () => {
 imgavant.addEventListener("click", () => {
     MinusIMG()
 })
+
+// FUNCTIONS //
 
 function Checklightbox() {
     if (Showlightbox) {
@@ -53,6 +54,8 @@ function AddIMG() {
         ArrayIndex ++
     }
     imgchargement.src = imagepost[ArrayIndex].currentSrc
+    catimg.innerText = (cat[ArrayIndex].innerText)
+    refimg.innerText = (imagepost[ArrayIndex].getAttribute("data-imgid"))
 }
 
 function MinusIMG() {
@@ -63,4 +66,6 @@ function MinusIMG() {
         ArrayIndex --
     }
     imgchargement.src = imagepost[ArrayIndex].currentSrc
+    catimg.innerText = (cat[ArrayIndex].innerText)
+    refimg.innerText = (imagepost[ArrayIndex].getAttribute("data-imgid"))
 }

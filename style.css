@@ -305,6 +305,10 @@ button.btn-mobile:focus {
     border-color: red !important;
 }
 
+.nav-links {
+    display: none !important;
+}
+
 /***** FILTRE & PHOTOS APPARENTEES *****/
 
 .photo_resultat {
@@ -497,6 +501,7 @@ button.btn-mobile:focus {
 /**** LIGHTBOX ****/
 #mylightbox {
     display: none;
+    flex-direction: column;
 }
 
 .lightbox {
@@ -601,14 +606,32 @@ button.btn-mobile:focus {
 	justify-content: space-between;
 	width: 564px;
 	margin-top: 19px;
+    position: fixed;
+    top: 90%;
+    left: 35%;
+    margin-left: 10%;
+    margin-right: 10%; 
 }
 
 p.lightbox__ref {
 	color: white;
+    text-transform: uppercase;
+    position: fixed;
+    top: 90%;
+    right: auto;
+    left: 20%;
+    margin-top: 9px;
+    font-size: 14px;
 }
 
 p.lightbox__cat {
 	color: white;
+    text-transform: uppercase;
+    position: fixed;
+    top: 90%;
+    right: 20%;
+    margin-top: 9px;
+    font-size: 14px;
 }
 
 /***** FOOTER *****/
