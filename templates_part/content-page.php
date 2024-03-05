@@ -34,21 +34,13 @@
 	$categorie_array = [];
 
 	$per_page = 8;
-	$offset = $_GET['page'] ?? 0; // On récupère le paramètre GET dans l'URL
 	// 1. On définit les arguments pour définir ce que l'on souhaite récupérer
 	$args = array(
 		'orderby' => array( 'rand', 'date' ),
 		'post_type' => 'photo',
-		'meta_key' => 'categorie', // nom du champ personnalisé → add Format
-
+		'meta_key' => 'categorie', // nom du champ personnalisé
 		// 'meta_value' => 'mariage',
-		/* 'category' => 'jeux-video',
-		'order' => 'DESC', // ASC ou DESC 
-		'orderby' => 'date', // title, date, comment_count…
-		'posts_per_page' => get_option( 'posts_per_page'), // Valeur par défaut
-		'posts_per_page' => -1, // tous les articles */
 		'posts_per_page' => $per_page, // 8 articles
-		'offset' => $offset,
 	);
 	// 2. On exécute la WP Query
 	$my_query = new WP_Query( $args );
@@ -74,28 +66,18 @@
 			<span class="title"> <?php  echo the_title() ?> </span>
 			<span class="categorie"><?php echo get_field( 'categorie' ) ?></span>
 			
-		</div>
-		<?php
-		// $fields = get_fields();
-		//  echo $post_id;
-		// var_dump($fields["categorie"]);
-		// if(!in_array($fields["categorie"], $categorie_array)){
-		//  array_push($categorie_array, $fields["categorie"]);
-		// } var_dump($postcat)
-		 ?>		
-	<?php   endwhile;
-	// echo "<h2>categories list: ";
-	// var_dump($categorie_array);
-	// echo "</h2>";
+		</div>	
+	<?php 
+	endwhile;
 	endif;
 	// 4. On réinitialise à la requête principale (important)
 	wp_reset_postdata();
 	?>
-	<!-- <a href="./ echo( '?page=' . $offset + $per_page ); ?>"><br>Charger plus</a> -->
 	
-</div>
-<div class="photo_resultat">
-<a href="./?name=hello"><br>Charger plus</a>
+	<div>
+		<button class="plus_btn">Charger plus</button>	
+	</div>
+	
 </div>
 
 <?php if ( get_edit_post_link() ) : ?>
