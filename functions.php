@@ -39,23 +39,55 @@ add_action('wp_enqueue_scripts', 'custom_script');
 
 function charger_plus() {
   $categorie_array = [];
-  $per_page = 1;
+  $per_page = 8;
+  /// prends le donnes sur POST
+  /*  page,
+      category,
+      format,
+      byDate  */
+  $page = $_POST["page"];
+  $category = $_POST["category"];
+  $format = $_POST["format"];
+  $byDate = $_POST["byDate"];
+
+
   $args = array(
 		'post_type' => 'photo',
 		'meta_key' => 'categorie',
 		'posts_per_page' => $per_page,
+    'paged' => $page
 	);
   $my_query = new WP_Query( $args );
   if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post(); 
-	$image_url = get_the_post_thumbnail_url();
+
+  $image_url = get_the_post_thumbnail_url();
   $image_alt = get_post_meta(get_the_ID(), '_wp_attachment_image_alt', true);
 	$post_id = get_post_meta(get_the_ID(), 'reference', true);
 	$postcat = get_the_category( $wp_query->post->ID );
 	$fields = get_the_category();
+  ?>
+
+  <div class="card">
+    <ul>
+        <li><?php  echo  'page: ' .  $page    ?></li>
+        <li><?php  echo  'category: ' .  $category    ?></li>
+        <li><?php  echo  'format: ' .  $format    ?></li>
+        <li><?php  echo  'byDate: ' .  $byDate    ?></li>
+    </ul>
+			<img class="post_img" src="<?php echo $image_url ?>" alt="<?php echo $image_alt?>" data-imgId="<?php echo $post_id ?>">
+
+			<img class="fullscreen" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/Icon_fullscreen.png" alt="Open Lightbox" role="button" aria-pressed="false">
+			<a href="<?php the_permalink();?>"><img class="info-eye" alt="Open Info" role="button" aria-pressed="false" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/Icon_eye.png" ></a>
+			<span class="title"> <?php  echo the_title() ?> </span>
+			<span class="categorie"><?php echo get_field( 'categorie' ) ?></span>
+			
+		</div>
+
+  <?php  
   endwhile;
   endif;
   wp_reset_postdata();
-  echo $_POST["test_name"];
 }
-add_action('wp_ajax_charger_plus', 'charger_plus')
+add_action('wp_ajax_charger_plus', 'charger_plus');
+add_action('wp_ajax_nopriv_charger_plus', 'charger_plus');
 ?>

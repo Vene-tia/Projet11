@@ -28,15 +28,43 @@
 		?>
     </div><!-- .entry-content -->
 
+	<form class="form-filter">
+		<?php 
+			// Get all taxonomies for the custom post type
+			$taxonomies = get_object_taxonomies('photo', 'objects');
+
+			// Check if there are any taxonomies
+			if ($taxonomies) {
+				foreach ($taxonomies as $taxonomy) {
+					// Output dropdown for each taxonomy
+					wp_dropdown_categories(array(
+						'taxonomy'         => $taxonomy->name,
+						'name'             => $taxonomy->name,
+						'orderby'          => 'name',
+						'show_option_all'  =>  $taxonomy->label,
+						'hide_empty'       => 1,
+						'hierarchical'     => true,
+					));
+				}
+			} else {
+				echo 'No taxonomies found for the specified post type.';
+			}
+		?>
+
+		<select name="select" id="date">
+			<option selected value="">TRIER PAR</option>
+			<option value="valor1">Plus récentes</option> 
+			<option value="valor2">Plus anciennes</option>
+		</select>
+	</form>
+
 <div class="filtre">
 	<?php 
-
 	$categorie_array = [];
-
 	$per_page = 8;
 	// 1. On définit les arguments pour définir ce que l'on souhaite récupérer
 	$args = array(
-		'orderby' => array( 'rand', 'date' ),
+		'orderby' => 'date',
 		'post_type' => 'photo',
 		'meta_key' => 'categorie', // nom du champ personnalisé
 		// 'meta_value' => 'mariage',
@@ -73,13 +101,12 @@
 	// 4. On réinitialise à la requête principale (important)
 	wp_reset_postdata();
 	?>
-	
-	<div>
+</div>
+
+<div class="btn_chargement">
 		<button class="plus_btn">Charger plus</button>	
 	</div>
 	
-</div>
-
 <?php if ( get_edit_post_link() ) : ?>
 	<footer class="entry-footer default-max-width">
 		<?php
