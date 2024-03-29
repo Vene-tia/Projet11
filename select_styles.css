@@ -1,0 +1,53 @@
+.select-hidden {
+	display: none;
+	visibility: hidden;
+	padding-right: 10px;
+}
+
+.select {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	font-size: 16px;
+	color: #313144;
+	width: 260px;
+	height: 42px;
+	padding: 11px 18px;
+	border: 1.3px solid #b8bbc2;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+}
+
+.select::after {
+	content: url("./assets/chevron-down-s.png");
+	position: absolute;
+	top: 11px;
+	right: 18px;
+}
+
+.select-options {
+	display: none;
+	position: absolute;
+	top: 41px;
+	right: 0;
+	left: 0;
+	z-index: 999;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background-color: white;
+	border-radius: 0 0 8px 8px;
+}
+
+.select-options li:first-child {
+	margin-top: 2.1em;
+}
+.select-options li {
+	padding: 11px 24px;
+}
+
+.select-options li:hover {
+	background-color: #e00000;
+	color: white;
+}

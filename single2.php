@@ -15,7 +15,7 @@ get_header();
 while ( have_posts() ) :
 	the_post();
 
-	get_template_part( 'templates-part/content-single' );
+	get_template_part( 'templates_part/content-single' );
 
 	if ( is_attachment() ) {
 		// Parent post navigation.

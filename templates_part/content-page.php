@@ -29,6 +29,7 @@
     </div><!-- .entry-content -->
 
 	<form class="form-filter">
+		<div class="filtre_gauche">
 		<?php 
 			// Get all taxonomies for the custom post type
 			$taxonomies = get_object_taxonomies('photo', 'objects');
@@ -50,6 +51,7 @@
 				echo 'No taxonomies found for the specified post type.';
 			}
 		?>
+		</div>
 
 		<select name="select" id="date">
 			<option selected value="">TRIER PAR</option>
@@ -61,17 +63,17 @@
 <div class="filtre">
 	<?php 
 	$categorie_array = [];
-	$per_page = 8;
 	// 1. On définit les arguments pour définir ce que l'on souhaite récupérer
 	$args = array(
 		'orderby' => 'date',
 		'post_type' => 'photo',
 		'meta_key' => 'categorie', // nom du champ personnalisé
 		// 'meta_value' => 'mariage',
-		'posts_per_page' => $per_page, // 8 articles
+		'posts_per_page' => 8, // 8 articles
 	);
 	// 2. On exécute la WP Query
 	$my_query = new WP_Query( $args );
+	
 	// 3. On lance la boucle !
 	if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post(); 
 
@@ -105,7 +107,7 @@
 
 <div class="btn_chargement">
 		<button class="plus_btn">Charger plus</button>	
-	</div>
+</div>
 	
 <?php if ( get_edit_post_link() ) : ?>
 	<footer class="entry-footer default-max-width">
