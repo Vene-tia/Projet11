@@ -113,3 +113,11 @@ function ajaxCall(url, page) {
 //        })
 //     })    
 // })
+
+// sans jQuery
+// document.addEventListener("DOMContentLoaded", () => {
+// 	const plusBtn = document.querySelector(".plus-btn")
+// 	plusBtn.addEventListener("click", () => {
+// 		console.log("clicked sans jQuery !!!!!!")
+// 	})
+// })

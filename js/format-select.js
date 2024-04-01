@@ -1,12 +1,21 @@
 //  https://codepen.io/wallaceerick/pen/nJLPvN
 
 document.addEventListener("DOMContentLoaded", () => {
-	const selectArray = document.querySelectorAll("select")
+	let selectArray = Array.from(document.querySelectorAll("select"))
+
+	selectArray.splice(0, 2);
+
+	console.log(selectArray);
+
 	selectArray.forEach((selectElem, i) => {
 		// hiden class to native select element
-		//selectElem.classList.add("select-hidden")
-
+		// if(i === 0 || i === 1){
+		// 	return
+		// }
+		selectElem.classList.add("select-hidden")
+		
 		const options = selectElem.children
+		// console.log(selectArray, selectElem);
 
 		const luContainer = document.createElement("ul")
 		luContainer.classList.add("select-options")

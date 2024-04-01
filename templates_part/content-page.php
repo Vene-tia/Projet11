@@ -28,6 +28,10 @@
 		?>
     </div><!-- .entry-content -->
 
+	<?php if ( ! is_front_page() ) {
+		return;
+	}  ?>
+
 	<form class="form-filter">
 		<div class="filtre_gauche">
 		<?php 
@@ -54,7 +58,7 @@
 		</div>
 
 		<select name="select" id="date">
-			<option selected value="">TRIER PAR</option>
+			<option selected value="">Trier par</option>
 			<option value="valor1">Plus récentes</option> 
 			<option value="valor2">Plus anciennes</option>
 		</select>

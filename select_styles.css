@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 .select-hidden {
 	display: none;
 	visibility: hidden;
@@ -8,7 +10,7 @@
 	cursor: pointer;
 	display: inline-block;
 	position: relative;
-	font-size: 16px;
+	font-size: 12px;
 	color: #313144;
 	width: 260px;
 	height: 42px;
@@ -17,6 +19,8 @@
 	border-radius: 8px;
 	display: flex;
 	align-items: center;
+	/* text-transform: uppercase; */
+	font-family: Poppins;
 }
 
 .select::after {
@@ -50,4 +54,5 @@
 .select-options li:hover {
 	background-color: #e00000;
 	color: white;
+	border-radius: 0 0 8px 8px;
 }

@@ -7,6 +7,9 @@ Version:      1.0.0
 */
 
 /***** MENU MOBILE DEFAULT *****/
+/*  select styles  */
+@import "select_styles.css";
+
 
 a {
     text-decoration: none !important;
@@ -706,8 +709,7 @@ article.post {
     max-width: 564px;
 }
 
-/*  select styles  */
-@import "select_styles.css";
+
 
 select.postform option:hover {
     box-shadow: 0 0 10px 100px #E00000 inset !important;

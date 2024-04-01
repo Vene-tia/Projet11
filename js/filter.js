@@ -20,7 +20,7 @@ $(document).ready(function () {
 	const container = $(".filtre")
 
 	let page = 1
-	const wordpressUrl = "http://nathalie-mota-local.local/"
+	const wordpressUrl = "http://nathalie-mota.local/"
 	// var wordpressUrl = "http://localhost:10034/"
 
 	plusBtn.click(() => {
@@ -30,15 +30,15 @@ $(document).ready(function () {
 	})
 
 	/*  refactor   */
-	// category.change(() => {
-	// 	// Réinitialisez la page actuelle à 1 lorsque les filtres sont modifiés
-	// 	page = 1
-	// 	console.log("filter by category")
-	// 	container.html("")
-	// 	ajaxCall(wordpressUrl + "/wp-admin/admin-ajax.php", page)
+	category.change(() => {
+		// Réinitialisez la page actuelle à 1 lorsque les filtres sont modifiés
+		page = 1
+		//console.log("filter by category")
+		container.html("")
+		ajaxCall(wordpressUrl + "/wp-admin/admin-ajax.php", page)
 
-	// 	//ajaxCall(wordpressUrl + "/wp-admin/admin-ajax.php", page)
-	// })
+		//ajaxCall(wordpressUrl + "/wp-admin/admin-ajax.php", page)
+	})
 
 	// format.change(() => {
 	// 	// Réinitialisez la page actuelle à 1 lorsque les filtres sont modifiés
@@ -106,17 +106,10 @@ function ajaxCall(url, page) {
 			}
 			// apprend la réponse
 			$(".filtre").append(reponse)
+			//console.log(reponse);
 		},
 		error: function (error) {
 			console.log("Error:", error)
 		},
 	})
 }
-
-// sans jQuery
-// document.addEventListener("DOMContentLoaded", () => {
-// 	const plusBtn = document.querySelector(".plus-btn")
-// 	plusBtn.addEventListener("click", () => {
-// 		console.log("clicked sans jQuery !!!!!!")
-// 	})
-// })

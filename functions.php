@@ -63,37 +63,51 @@ function charger_plus() {
 
 
   $args = array(
-		'post_type' => 'photo',
-		'meta_key' => 'categorie',
-		'posts_per_page' => $per_page,
-    'paged' => $page
-	);
+    'post_type' => 'photo',
+    'posts_per_page' => $per_page,
+    'paged' => $page,
+  );
 
-  if( $category != "Categories"){
-    /// add new arguments
-     $args['tax_query'] = array(
-       array(
-         'taxonomy' => 'category',
-         'field'    => 'slug',
-         'terms'    => $category,
-         'operator' => 'IN'
-       )
-     );
- }
 
- if( $format != "Formats"){
-    /// add new arguments
-     $args['tax_query'][] = array(
-       array(
-         'taxonomy' => 'formats',
-         'field'    => 'slug',
-         'terms'    =>  $format,
-         'operator' => 'IN'
-       )
-     );
- }
+  // $args = array(
+  //       'post_type' => 'photo',
+  //       'posts_per_page' => $per_page,
+  //       'paged' => $page,
+  //       'tax_query' => array(
+  //         array(
+  //             'taxonomy' => 'formats',
+  //             'field' => 'name',
+  //             'terms' => 'portrait'
+  //             )
+  //         )
+        
+  //     );
 
- if( $byDate != "Tirer par Date"){
+
+//   if( $category != "Catégories"){
+//     /// add new arguments
+//      $args['tax_query'] = array(
+//        array(
+//          'taxonomy' => 'category',
+//          'field'    => 'slug',
+//          'terms'    => $category,
+//          'operator' => 'IN'
+//        )
+//      );
+//  }
+
+//  if( $format != "Formats"){
+//     /// add new arguments
+//      $args['tax_query'][] = array(
+//        array(
+//          'taxonomy' => 'formats',
+//          'field'    => 'slug',
+//          'terms'    => 'paysage',
+//        )
+//      );
+//  }
+
+ if( $byDate != "Trier par"){
    // Configure l'ordre des résultats en fonction de l'option de tri.
      if ($byDate == 'Plus récents') {
          $args['orderby'] = 'date';
@@ -114,21 +128,14 @@ function charger_plus() {
 	$fields = get_the_category();
   ?>
 
-  <div class="card">
-    <ul>
-        <li><?php  echo  'page: ' .  $page    ?></li>
-        <li><?php  echo  'category: ' .  $category    ?></li>
-        <li><?php  echo  'format: ' .  $format    ?></li>
-        <li><?php  echo  'byDate: ' .  $byDate    ?></li>
-    </ul>
+<div class="card">
 			<img class="post_img" src="<?php echo $image_url ?>" alt="<?php echo $image_alt?>" data-imgId="<?php echo $post_id ?>">
 
 			<img class="fullscreen" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/Icon_fullscreen.png" alt="Open Lightbox" role="button" aria-pressed="false">
 			<a href="<?php the_permalink();?>"><img class="info-eye" alt="Open Info" role="button" aria-pressed="false" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/Icon_eye.png" ></a>
 			<span class="title"> <?php  echo the_title() ?> </span>
-			<span class="categorie"><?php echo get_field( 'categorie' ) ?></span>
-			
-		</div>
+			<span class="categorie"><?php echo get_field( 'categorie' ) ?></span>	
+	</div>
 
   <?php  
   endwhile;
