@@ -24,14 +24,14 @@ $(document).ready(function () {
 	// var wordpressUrl = "http://localhost:10034/"
 
 	plusBtn.click(() => {
-		// passer a la deuxieme page
+		// passer à la deuxieme page
 		page++
 		ajaxCall(wordpressUrl + "/wp-admin/admin-ajax.php", page)
 	})
 
 	/*  refactor   */
 	category.change(() => {
-		// Réinitialisez la page actuelle à 1 lorsque les filtres sont modifiés
+		// Réinitialiser la page actuelle à 1 lorsque les filtres sont modifiés
 		page = 1
 		//console.log("filter by category")
 		container.html("")
@@ -39,26 +39,6 @@ $(document).ready(function () {
 
 		//ajaxCall(wordpressUrl + "/wp-admin/admin-ajax.php", page)
 	})
-
-	// format.change(() => {
-	// 	// Réinitialisez la page actuelle à 1 lorsque les filtres sont modifiés
-	// 	page = 1
-	// 	console.log("filter by format")
-	// 	container.html("")
-	// 	ajaxCall(wordpressUrl + "/wp-admin/admin-ajax.php", page)
-
-	// 	//ajaxCall(wordpressUrl + "/wp-admin/admin-ajax.php", page)
-	// })
-
-	// date.change(() => {
-	// 	// Réinitialisez la page actuelle à 1 lorsque les filtres sont modifiés
-	// 	page = 1
-	// 	console.log("filter by date")
-	// 	container.html("")
-	// 	ajaxCall(wordpressUrl + "/wp-admin/admin-ajax.php", page)
-
-	// 	//ajaxCall(wordpressUrl + "/wp-admin/admin-ajax.php", page)
-	// })
 })
 
 //  fonction qui fait la requête ajax
@@ -71,19 +51,6 @@ function ajaxCall(url, page) {
 	const category = selectArray[0].lastChild.innerHTML
 	const format = selectArray[1].lastChild.innerHTML
 	const byDate = selectArray[2].lastChild.innerHTML
-	// let format = $("#formats option:selected").text()
-	// let byDate = $("#date option:selected").text()
-
-	// check empty values
-	// if (category === "Categories") {
-	// 	category = 0
-	// }
-	// if (format === "Formats") {
-	// 	format = 0
-	// }
-	// if (byDate === "Tirer par Date") {
-	// 	byDate = 0
-	// }
 
 	console.log(category, format, byDate)
 
@@ -95,7 +62,7 @@ function ajaxCall(url, page) {
 			action: "charger_plus",
 			page,
 			category,
-			format: $("#formats option:selected").text(),
+			format,
 			byDate,
 		},
 		success: function (reponse) {
@@ -107,6 +74,18 @@ function ajaxCall(url, page) {
 			// apprend la réponse
 			$(".filtre").append(reponse)
 			//console.log(reponse);
+			const btnFullscreen = document.querySelectorAll('.fullscreen')
+			const imagepost = document.querySelectorAll('.post_img')
+
+			btnFullscreen.forEach((btn,i)=>{
+				btn.addEventListener("click", () => {
+					Checklightbox()
+					ArrayIndex = i
+					imgchargement.src = imagepost[ArrayIndex].currentSrc
+					catimg.innerText = (cat[ArrayIndex].innerText)
+					refimg.innerText = (imagepost[ArrayIndex].getAttribute("data-imgid"))
+				})
+			})
 		},
 		error: function (error) {
 			console.log("Error:", error)

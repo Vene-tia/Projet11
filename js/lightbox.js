@@ -2,7 +2,6 @@ const btnFullscreen = document.querySelectorAll('.fullscreen')
 const lightbox = document.querySelector('.lightbox')
 const quitter_lightbox = document.querySelector('.close_lightbox')
 const imgchargement = document.getElementById('imgchargement')
-const imagepost = document.querySelectorAll('.post_img')
 const imgavant = document.querySelector('.before_lightbox')
 const imgapres = document.querySelector('.next_lightbox')
 const refimg = document.querySelector('.lightbox__ref')
@@ -36,6 +35,7 @@ imgavant.addEventListener("click", () => {
 // FUNCTIONS //
 
 function Checklightbox() {
+    console.log("running check lightbox ... ");
     if (Showlightbox) {
             lightbox.style.display = "none"
             Showlightbox = false
@@ -47,6 +47,7 @@ function Checklightbox() {
 }
 
 function AddIMG() {
+    const imagepost = document.querySelectorAll('.post_img')
     if (ArrayIndex === imagepost.length-1) {
         ArrayIndex = 0
         }
@@ -59,6 +60,7 @@ function AddIMG() {
 }
 
 function MinusIMG() {
+    const imagepost = document.querySelectorAll('.post_img')
     if (ArrayIndex === 0) {
         ArrayIndex = imagepost.length-1
         }

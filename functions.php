@@ -29,7 +29,6 @@ add_action('init', 'register_my_menus');
 function custom_script()
 {
   wp_enqueue_script('modal', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
-  //wp_enqueue_script('lightbox', get_stylesheet_directory_uri() . '/js/lightbox.js', array('jquery'), '1.0', true);
   wp_enqueue_script('filter_script', get_stylesheet_directory_uri() . '/js/filter.js', array('jquery'));
 }
 add_action('wp_enqueue_scripts', 'custom_script');
@@ -51,72 +50,52 @@ add_action('wp_enqueue_scripts', 'select_script');
 function charger_plus() {
   $categorie_array = [];
   $per_page = 8;
-  /// prends le donnes sur POST
-  /*  page,
-      category,
-      format,
-      byDate  */
+  // Prend les données sur POST
   $page = $_POST["page"];
   $category = $_POST["category"];
   $format = $_POST["format"];
   $byDate = $_POST["byDate"];
 
+    $args = array(
+      'post_type' => 'photo',
+      'posts_per_page' => $per_page,
+      'paged' => $page,
+    );
 
-  $args = array(
-    'post_type' => 'photo',
-    'posts_per_page' => $per_page,
-    'paged' => $page,
-  );
+    if( $category != "Catégories"){
+      /// add new arguments
+       $args['tax_query'] = array(
+         array(
+           'taxonomy' => 'category',
+           'field'    => 'slug',
+           'terms'    => $category,
+           'operator' => 'IN'
+        )
+      );
+   }
 
+   if( $format != "Formats"){
+      // add new arguments
+      $args['tax_query'][] = array(
+         array(
+           'taxonomy' => 'format',
+           'field'    => 'slug',
+           'terms'    => $format,
+           'operator' => 'IN'
+         )
+       );
+   }
 
-  // $args = array(
-  //       'post_type' => 'photo',
-  //       'posts_per_page' => $per_page,
-  //       'paged' => $page,
-  //       'tax_query' => array(
-  //         array(
-  //             'taxonomy' => 'formats',
-  //             'field' => 'name',
-  //             'terms' => 'portrait'
-  //             )
-  //         )
-        
-  //     );
-
-
-//   if( $category != "Catégories"){
-//     /// add new arguments
-//      $args['tax_query'] = array(
-//        array(
-//          'taxonomy' => 'category',
-//          'field'    => 'slug',
-//          'terms'    => $category,
-//          'operator' => 'IN'
-//        )
-//      );
-//  }
-
-//  if( $format != "Formats"){
-//     /// add new arguments
-//      $args['tax_query'][] = array(
-//        array(
-//          'taxonomy' => 'formats',
-//          'field'    => 'slug',
-//          'terms'    => 'paysage',
-//        )
-//      );
-//  }
-
- if( $byDate != "Trier par"){
-   // Configure l'ordre des résultats en fonction de l'option de tri.
-     if ($byDate == 'Plus récents') {
-         $args['orderby'] = 'date';
-         $args['order'] = 'DESC';
-     } elseif ($byDate == 'Plus ancienes') {
-         $args['orderby'] = 'date';
-         $args['order'] = 'ASC';
-     }
- }
+   if( $byDate != "Trier par"){
+     // Configure l'ordre des résultats en fonction de l'option de tri.
+       if ($byDate == 'Plus récentes') {
+          $args['orderby'] = 'date';
+          $args['order'] = 'DESC';
+       } elseif ($byDate == 'Plus anciennes') {
+          $args['orderby'] = 'date';
+          $args['order'] = 'ASC';
+        }
+   }
 
   $my_query = new WP_Query( $args );
   if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post(); 
@@ -128,16 +107,16 @@ function charger_plus() {
 	$fields = get_the_category();
   ?>
 
-<div class="card">
+  <div class="card">
 			<img class="post_img" src="<?php echo $image_url ?>" alt="<?php echo $image_alt?>" data-imgId="<?php echo $post_id ?>">
 
 			<img class="fullscreen" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/Icon_fullscreen.png" alt="Open Lightbox" role="button" aria-pressed="false">
 			<a href="<?php the_permalink();?>"><img class="info-eye" alt="Open Info" role="button" aria-pressed="false" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/Icon_eye.png" ></a>
 			<span class="title"> <?php  echo the_title() ?> </span>
 			<span class="categorie"><?php echo get_field( 'categorie' ) ?></span>	
-	</div>
+  </div>
 
-  <?php  
+<?php  
   endwhile;
   // sends no "0" to the enaswer
   wp_die();
@@ -146,5 +125,4 @@ function charger_plus() {
 }
 add_action('wp_ajax_charger_plus', 'charger_plus');
 add_action('wp_ajax_nopriv_charger_plus', 'charger_plus');
-
 ?>
