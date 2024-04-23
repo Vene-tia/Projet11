@@ -10,7 +10,7 @@ $(document).ready(function () {
 	for (let index = 0; index < selectOptions.length; index++) {
 		const element = selectOptions[index]
 		element.addEventListener("click", (e) => {
-			console.log(e.target.innerHTML)
+			//console.log(e.target.innerHTML)
 			page = 1
 			container.html("")
 			ajaxCall(wordpressUrl + "/wp-admin/admin-ajax.php", page)
@@ -20,7 +20,9 @@ $(document).ready(function () {
 	const container = $(".filtre")
 
 	let page = 1
-	const wordpressUrl = "http://nathalie-mota.local/"
+	const wordpressUrl = window.location.origin
+	//"http://nathalie-mota.local/"
+	//console.log(wordpressUrl)
 	// var wordpressUrl = "http://localhost:10034/"
 
 	plusBtn.click(() => {

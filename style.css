@@ -917,6 +917,7 @@ select.postform option:hover {
 
 .lightbox__container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
@@ -925,7 +926,7 @@ select.postform option:hover {
 }
 
 #imgchargement {
-    max-width: 100vh;
+    max-width: 564px;
     max-height: 80vh;
 }
 
@@ -933,22 +934,16 @@ select.postform option:hover {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	width: 564px;
+	width: 100%;
+    max-width: 490px;
 	margin-top: 19px;
-    position: fixed;
-    top: 90%;
-    left: 35%;
-    margin-left: 10%;
-    margin-right: 10%; 
+    margin-left: auto;
+    margin-right: auto; 
 }
 
 p.lightbox__ref {
 	color: white;
     text-transform: uppercase;
-    position: fixed;
-    top: 90%;
-    right: auto;
-    left: 20%;
     margin-top: 9px;
     font-size: 14px;
 }
@@ -956,9 +951,6 @@ p.lightbox__ref {
 p.lightbox__cat {
 	color: white;
     text-transform: uppercase;
-    position: fixed;
-    top: 90%;
-    right: 20%;
     margin-top: 9px;
     font-size: 14px;
 }

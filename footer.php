@@ -29,11 +29,11 @@
     <button class="before_lightbox"></button>
     <div class="lightbox__container">
         <img id="imgchargement" src="https://img.freepik.com/vecteurs-premium/icone-chargement_167801-436.jpg?w=360" alt="">
+        <div class="lightbox__info">
+	    	<p class="lightbox__ref">light-ref</p>
+	    	<p class="lightbox__cat">light-cat</p>
+	    </div>
     </div>
-    <div class="lightbox__info">
-		<p class="lightbox__ref">light-ref</p>
-		<p class="lightbox__cat">light-cat</p>
-	</div>
 </div>
 
 <?php wp_footer(); ?>

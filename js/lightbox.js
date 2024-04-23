@@ -12,6 +12,7 @@ let ArrayIndex = null
 
 btnFullscreen.forEach((btn,i)=>{
     btn.addEventListener("click", () => {
+        const imagepost = document.querySelectorAll('.post_img')
         Checklightbox()
         ArrayIndex = i
         imgchargement.src = imagepost[ArrayIndex].currentSrc

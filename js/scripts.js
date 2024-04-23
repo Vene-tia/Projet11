@@ -12,16 +12,19 @@ window.addEventListener("click", (event)=>{
 console.log(window.location.pathname)
 if (window.location.pathname!="/"){
     const btnctn = document.querySelector(".button_contact")
-    btnctn.addEventListener("click", ()=>{
-        document.getElementById('id01').style.display='block'
-        //const ref_contact = document.getElementById('ref_contact')
-        //const ref_input = document.querySelectorAll('.wpcf7-text')[2]
-        //ref_input.value = ref_contact.value
-        const ref_contact = document.getElementById("BF").textContent
-        const ref_input = document.querySelectorAll('.wpcf7-text')[2]
-        ref_input.value = ref_contact
-        console.log(document.getElementById("BF").textContent)
-    })
+    if (btnctn) {
+        btnctn.addEventListener("click", ()=>{
+            document.getElementById('id01').style.display='block'
+            //const ref_contact = document.getElementById('ref_contact')
+            //const ref_input = document.querySelectorAll('.wpcf7-text')[2]
+            //ref_input.value = ref_contact.value
+            const ref_contact = document.getElementById("BF").textContent
+            const ref_input = document.querySelectorAll('.wpcf7-text')[2]
+            ref_input.value = ref_contact
+            console.log(document.getElementById("BF").textContent)
+        })
+    }
+
 
 
 window.addEventListener("click", (event)=>{
